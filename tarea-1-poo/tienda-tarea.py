@@ -5,6 +5,9 @@ class cliente:
         self.telefono = telefono
         self.direccion = direccion
         self.email = email
+    
+    def __str__(self):
+        return f"Datos del cliente: {self.nombres}, {self.telefono}, {self.direccion}, {self.email}"
 
 
 class VentaDetalle:
@@ -38,12 +41,15 @@ class Venta:
         self.total = self.subtotal + self.impuesto
 
 
-class Producto(Tipo):
+class Producto():
     def __init__(self, nombre, tipo, precioBase):
-        super.__init__(id, nombre)
         self.nombre = nombre
         self.tipo = tipo
         self.precioBase = precioBase
+
+    def __str__(self):
+        return f"Datos del producto: {self.nombre}, {self.tipo}, {self.precioBase}"
+
     
     def calcularPrecioFinal(self):
 
@@ -114,3 +120,14 @@ class EstadisticaVenta:
         if len(self.ventas) > 0:
             productos_vendidos = {}
 
+#AGRAGACIÓN
+cliente1 = cliente(7, "Ariel Lara", 44098958, "avenue 5th", "ariel12@gmail.com")
+#print(cliente1.id, "", cliente1.nombres, "", cliente1.direccion)
+print(cliente1.__str__())
+
+#ASOCIACIÓN
+producto1 = Producto("resma hojas A4", "papeleria", 5.99)
+print(producto1.__str__())
+
+venta1 = Venta(45, "24-05-2023", "Ariel Lara")
+print(venta1.__str__())
